@@ -19,23 +19,23 @@
          <h2>Select a Major</h2>
       
          <div style='padding: 5px;'>    
-            <button type='button' class="btn btn-primary" onClick="getData('breakfast')">CIT Majors</button> 
-            <button type='button' class="btn btn-primary" onClick="getData('lunch')">Business Majors</button> 
+            <button type='button' class="btn btn-primary" onClick="getData('CIT')">CIT Majors</button> 
+            <button type='button' class="btn btn-primary" onClick="getData('BUS')">Business Majors</button> 
 
          </div>
          <h3>Dataset Filtered by Major</h3>
-         <div id="menuTable"></div>   
+         <div id="majorTable"></div>   
      
         </div>   <!-- end class='container'   -->
 
   <!-- Handlebars template -->
-<script type="text/x-handlebars-template" id="menuTemplate">
+<script type="text/x-handlebars-template" id="majorsTemplate">
 
    <table class="table table-striped">
-      <tr><th>Item</th><th>Meal</th><th>Category</th><th>Portion</th></tr>
+      <tr><th>Item</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
       {{#each rows}}
          <tr>
-            <td>{{name}}</td><td>{{meal}}</td><td>{{category}}</td><td>{{portion}}</td>
+            <td>{{name}}</td><td>{{major}}</td><td>{{midterm}}</td><td>{{final}}</td>
          </tr>
       {{/each}}
    </table>
