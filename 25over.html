@@ -62,6 +62,7 @@
                 async getData() {
                     const response = await fetch('tickets1.json')
                     this.data = await response.json()
+                    this.showTable = true
                     tickets = data.filter(data => data.actual_speed >= 25);     
                 }
             }
