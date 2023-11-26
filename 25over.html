@@ -61,7 +61,7 @@
             methods: {    // ajax request
                 async getData() {
                     const response = await fetch('tickets1.json')
-                    this.tickets = await response.json()
+                    this.data = await response.json()
                     tickets = data.filter( (item) => item.actual_speed >= 25);     
                 }
             }
