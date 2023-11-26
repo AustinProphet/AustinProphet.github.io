@@ -1,5 +1,5 @@
 async function getData(selected_major) {
-    var response = await fetch('cit5students.json');   // this is a GET request
+    var response = await fetch('tickets1.json');   // this is a GET request
 
     if(response.ok) {
         var data = await response.json();
