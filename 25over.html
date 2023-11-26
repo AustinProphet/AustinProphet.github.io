@@ -55,7 +55,7 @@
                     speed: '',
                     results: [],           // array to hold student data
 
-                    ticket_items: [],
+                    ticket: [],
                     stop_time: '',
 
                     showTable: false
@@ -72,7 +72,7 @@
                 },
                 getSpeed() {
                     this.showTable = true 
-                    this.ticket_items = this.results.filter((item) => item.actual_speed >= 25)
+                    this.ticket = this.results.filter((item) => item.actual_speed >= 25)
                 }
             }
           })
