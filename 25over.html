@@ -62,11 +62,7 @@
                 async getData() {
                     const response = await fetch('tickets1.json')
                     this.tickets = await response.json()
-                    //tickets = data.filter( (item) => item.major == majSelect );     
-                },
-                getBySpeed() {
-                    this.showTable = true
-                    this.tickets = this.results.filter( (tickets) => ticket.actual_speed == this.actual_speed);
+                    tickets = data.filter( (item) => item.actual_speed == actual_speed );     
                 }
             }
           })
