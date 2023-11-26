@@ -1,19 +1,32 @@
-async function getData(selected_major) {
-    var response = await fetch('tickets1.json');   // this is a GET request
+let app = Vue.createApp({
+    data() {     // returns an object of data
+        return {
+            meal: '',          // value is set by the select list
+            results: [],       // all 109 data itmes retrieved from the json file
+			menu_items: [],    // menu items filtered by meal
+			time_loaded: '',
+            showTable: false
+        }
+    },
+	created() {      // section executes as page loads
+		var d = new Date()
+		this.time_loaded = d.toLocaleTimeString()
+		
+		this.getData()  // call method to load json data as page loads
+	},
+    methods: {    // an object of functions (methods)
+        async getData() {
+            const response = await fetch('tickets1.json')
+            this.results = await response.json()
+        },
+		getMenu() {
+            this.showTable = true
+			// filter data form given meal
+			this.menu_items = this.results.filter( (item) => item.meal == this.meal );
+			
+		}
+   },
+    
+})
 
-    if(response.ok) {
-        var data = await response.json();
-
-        // filter data array for the selected meal
-        major_items = data.filter( (item) => item.major == selected_major );  
-
-       var templateText = document.getElementById('majorsTemplate').innerHTML;
-       var compiledTemplateText = Handlebars.compile(templateText);   // get and compile template code
-       compiledHtml = compiledTemplateText({ rows: major_items })      // apply data to template
-       document.getElementById('majorTable').innerHTML = compiledHtml; 
-    }
-    else {
-       document.querySelector('#majorTable').innerHTML = "There was an error, or major items not found";
-    }	
- 
-}
+app.mount('#main')   //in which div to mount the vue app
